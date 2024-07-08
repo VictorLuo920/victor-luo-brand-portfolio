@@ -4,12 +4,10 @@ const SomeText = () => {
   return (
     <Grid textAlign="center">
       <Heading as="h1" size="lg">
-        nextarter-chakra
+        Victor's Portfolio
       </Heading>
 
-      <Text fontSize="xs">
-        This is a Next.js app with Chakra-UI and TypeScript setup.
-      </Text>
+      <Text fontSize="xs">Some profile text highlighting who I am</Text>
     </Grid>
   );
 };
