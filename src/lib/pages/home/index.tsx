@@ -1,7 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 
-import CTASection from '~/lib/components/samples/CTASection';
-import SomeImage from '~/lib/components/samples/SomeImage';
+import SocialLinks from '~/lib/components/samples/SocialLinks';
 import SomeText from '~/lib/components/samples/SomeText';
 
 const Home = () => {
@@ -16,8 +15,7 @@ const Home = () => {
       w="full"
     >
       <SomeText />
-      <SomeImage />
-      <CTASection />
+      <SocialLinks />
     </Flex>
   );
 };

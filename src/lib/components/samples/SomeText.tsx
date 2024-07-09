@@ -3,11 +3,11 @@ import { Grid, Heading, Text } from '@chakra-ui/react';
 const SomeText = () => {
   return (
     <Grid textAlign="center">
-      <Heading as="h1" size="lg">
-        Victor's Portfolio
+      <Heading as="h1" size="xl">
+        Victor Luo
       </Heading>
 
-      <Text fontSize="xs">Some profile text highlighting who I am</Text>
+      <Text fontSize="md">Some profile text highlighting who I am</Text>
     </Grid>
   );
 };
