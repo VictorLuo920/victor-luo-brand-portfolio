@@ -5,7 +5,7 @@ import { FaGithub, FaLinkedin, FaTwitter, FaInstagram } from 'react-icons/fa';
 
 export default function SocialLinks() {
   return (
-    <ButtonGroup alignSelf="center">
+    <ButtonGroup alignSelf="center" my={2}>
       <IconButton aria-label="GitHub" variant="ghost" icon={<FaGithub />} />
       <IconButton aria-label="LinkedIn" variant="ghost" icon={<FaLinkedin />} />
       <IconButton aria-label="Twitter" variant="ghost" icon={<FaTwitter />} />

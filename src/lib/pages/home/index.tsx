@@ -1,5 +1,6 @@
 import { Flex } from '@chakra-ui/react';
 
+import CTAGroup from '~/lib/components/samples/CTAGroup';
 import SocialLinks from '~/lib/components/samples/SocialLinks';
 import SomeText from '~/lib/components/samples/SomeText';
 
@@ -16,6 +17,7 @@ const Home = () => {
     >
       <SomeText />
       <SocialLinks />
+      <CTAGroup />
     </Flex>
   );
 };
