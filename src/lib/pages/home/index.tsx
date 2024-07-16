@@ -1,8 +1,8 @@
 import { Flex } from '@chakra-ui/react';
 
 import CTAGroup from '~/lib/components/samples/CTAGroup';
+import ShortBio from '~/lib/components/samples/ShortBio';
 import SocialLinks from '~/lib/components/samples/SocialLinks';
-import SomeText from '~/lib/components/samples/SomeText';
 
 const Home = () => {
   return (
@@ -15,7 +15,7 @@ const Home = () => {
       mb={8}
       w="full"
     >
-      <SomeText />
+      <ShortBio />
       <SocialLinks />
       <CTAGroup />
     </Flex>
