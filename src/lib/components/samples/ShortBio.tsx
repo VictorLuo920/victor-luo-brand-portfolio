@@ -7,7 +7,7 @@ const ShortBio = () => {
         Victor Luo
       </Heading>
 
-      <Text fontSize="md">
+      <Text fontSize="md" textAlign="initial">
         I&apos;m a writer, an educator, and an indepdendent creative full-stack
         developer based in Los Angeles. I&apos;m passioniate about building
         communities and experiences that promote learning and artistic
