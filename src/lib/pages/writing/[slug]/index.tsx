@@ -1,11 +1,14 @@
 import { Flex, Grid, Heading, Text, Button } from '@chakra-ui/react';
 import Link from 'next/link';
 
-import supabase from '../../utils/supabase';
-import { strToSlug } from '~/lib/utils/helperFunctions';
+import supabase from '../../../utils/supabase';
+import { slugToStr } from '~/lib/utils/helperFunctions';
 
-const Writing = async () => {
-  const { data: posts, error } = await supabase.from('posts').select('*');
+const Post = async ({ params }: { params: { slug: string } }) => {
+  const { data: post, error } = await supabase
+    .from('posts')
+    .select()
+    .eq('title', `${slugToStr(params.slug)}`);
 
   return (
     <Flex
@@ -19,20 +22,12 @@ const Writing = async () => {
     >
       <Grid textAlign="center">
         <Heading as="h1" size="4xl" mb={4}>
-          My Writing
+          {post[0]?.title}
         </Heading>
 
         <Text fontSize="md" textAlign="initial">
-          Placeholder Text for My Writing Page
+          {post[0]?.content}
         </Text>
-
-        {posts?.map((post) => {
-          return (
-            <Link key={post.id} href={`/writing/${strToSlug(post.title)}`}>
-              {post.title}
-            </Link>
-          );
-        })}
       </Grid>
       <Button as={Link} href="/">
         Home Page
@@ -41,4 +36,4 @@ const Writing = async () => {
   );
 };
 
-export default Writing;
+export default Post;
