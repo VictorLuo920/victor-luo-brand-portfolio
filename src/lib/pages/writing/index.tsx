@@ -1,7 +1,11 @@
 import { Flex, Grid, Heading, Text, Button } from '@chakra-ui/react';
 import Link from 'next/link';
 
-const Writing = () => {
+import supabase from '../../utils/supabase';
+
+const Writing = async () => {
+  const { data: posts, error } = await supabase.from('posts').select('*');
+
   return (
     <Flex
       direction="column"
@@ -19,6 +23,7 @@ const Writing = () => {
 
         <Text fontSize="md" textAlign="initial">
           Placeholder Text for My Writing Page
+          {JSON.stringify(posts, null, 2)}
         </Text>
       </Grid>
       <Button as={Link} href="/">
