@@ -1,8 +1,21 @@
-import { Flex, Grid, Heading, Text, Button } from '@chakra-ui/react';
+import {
+  Flex,
+  Grid,
+  Heading,
+  Text,
+  Button,
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer,
+} from '@chakra-ui/react';
 import Link from 'next/link';
 
 import supabase from '../../utils/supabase';
-import { strToSlug } from '~/lib/utils/helperFunctions';
+import { strToSlug, formatDate } from '~/lib/utils/helperFunctions';
 
 const Writing = async () => {
   const { data: posts, error } = await supabase.from('posts').select('*');
@@ -17,24 +30,41 @@ const Writing = async () => {
       mb={8}
       w="full"
     >
-      <Grid textAlign="center">
+      <Grid textAlign="center" gap={4}>
         <Heading as="h1" size="4xl" mb={4}>
           My Writing
         </Heading>
 
         <Text fontSize="md" textAlign="initial">
-          Placeholder Text for My Writing Page
+          Here you&apos;ll find my writing on various topics like writing,
+          teaching, and technology
         </Text>
-
-        {posts?.map((post) => {
-          return (
-            <Link key={post.id} href={`/writing/${strToSlug(post.title)}`}>
-              {post.title}
-            </Link>
-          );
-        })}
+        <TableContainer>
+          <Table variant="simple">
+            <Thead>
+              <Tr>
+                <Th>Post Title</Th>
+                <Th>Published On</Th>
+              </Tr>
+            </Thead>
+            <Tbody>
+              {posts?.map((post) => {
+                return (
+                  <Tr key={post.id}>
+                    <Td>
+                      <Link href={`/writing/${strToSlug(post.title)}`}>
+                        {post.title}
+                      </Link>
+                    </Td>
+                    <Td>{formatDate(post.created_at)}</Td>
+                  </Tr>
+                );
+              })}
+            </Tbody>
+          </Table>
+        </TableContainer>
       </Grid>
-      <Button as={Link} href="/">
+      <Button as={Link} href="/" w={{ base: '100%', md: '75%' }}>
         Home Page
       </Button>
     </Flex>

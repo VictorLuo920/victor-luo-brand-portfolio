@@ -1,8 +1,8 @@
-import { Flex, Grid, Heading, Text, Button } from '@chakra-ui/react';
+import { Flex, Stack, Grid, Heading, Text, Button } from '@chakra-ui/react';
 import Link from 'next/link';
 
 import supabase from '../../../utils/supabase';
-import { slugToStr } from '~/lib/utils/helperFunctions';
+import { slugToStr, formatDate } from '~/lib/utils/helperFunctions';
 
 const Post = async ({ params }: { params: { slug: string } }) => {
   const { data: post, error } = await supabase
@@ -24,14 +24,23 @@ const Post = async ({ params }: { params: { slug: string } }) => {
         <Heading as="h1" size="4xl" mb={4}>
           {post[0]?.title}
         </Heading>
-
-        <Text fontSize="md" whiteSpace="pre-line" textAlign="initial">
+        <Text fontSize="md" whiteSpace="pre-line" textAlign="initial" mb={4}>
           {post[0]?.content}
         </Text>
+        <Text
+          fontSize="xs"
+          textAlign="initial"
+          mb={4}
+        >{`published on ${formatDate(post[0]?.created_at)}`}</Text>
       </Grid>
-      <Button as={Link} href="/">
-        Home Page
-      </Button>
+      <Stack gap={4} w={{ base: '100%', md: '75%' }}>
+        <Button variant="outline" as={Link} href="/">
+          Home Page
+        </Button>
+        <Button as={Link} href="/writing">
+          My Writing
+        </Button>
+      </Stack>
     </Flex>
   );
 };
