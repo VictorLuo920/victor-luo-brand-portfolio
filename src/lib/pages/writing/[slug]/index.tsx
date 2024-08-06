@@ -25,7 +25,7 @@ const Post = async ({ params }: { params: { slug: string } }) => {
           {post[0]?.title}
         </Heading>
 
-        <Text fontSize="md" textAlign="initial">
+        <Text fontSize="md" whiteSpace="pre-line" textAlign="initial">
           {post[0]?.content}
         </Text>
       </Grid>
