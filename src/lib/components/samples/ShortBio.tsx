@@ -8,8 +8,8 @@ const ShortBio = () => {
       </Heading>
 
       <Text fontSize="md" textAlign="initial">
-        I&apos;m a writer, an educator, and an indepdendent creative full-stack
-        developer based in Los Angeles. I&apos;m passioniate about building
+        I&apos;m a writer, an educator, and an independent creative full-stack
+        developer based in Los Angeles. I&apos;m passionate about building
         communities and experiences that promote learning and artistic
         collaboration.
       </Text>
